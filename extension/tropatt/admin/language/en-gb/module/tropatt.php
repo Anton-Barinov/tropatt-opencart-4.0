@@ -39,3 +39,12 @@ $_['error_permission']       = 'Warning: You do not have permission to modify Tr
 $_['error_gateway_url']      = 'Gateway URL is required!';
 $_['error_store_key']        = 'Store Key is required!';
 $_['error_store_secret']     = 'Store Secret is required!';
+
+// Bootstrap 5 admin panel
+$_['text_yes'] = 'Yes';
+$_['text_no'] = 'No';
+$_['text_copied'] = 'The URL has been copied to the clipboard';
+$_['text_mapping_help'] = 'Map OpenCart order statuses to TropaTT CRM task stages. When a stage changes in the CRM, the module moves the OpenCart order to the mapped status automatically.';
+$_['text_mapping_status_column'] = 'OpenCart status';
+$_['text_mapping_stage_column'] = 'CRM stage code (for example: new, in_progress, completed, cancelled)';
+$_['button_copy'] = 'Copy';

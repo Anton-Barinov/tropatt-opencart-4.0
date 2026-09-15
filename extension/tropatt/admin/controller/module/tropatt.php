@@ -45,12 +45,35 @@ class Tropatt extends \Opencart\System\Engine\Controller {
         $data['action'] = $this->url->link('extension/tropatt/module/tropatt', 'user_token=' . $this->session->data['user_token'], true);
         $data['cancel'] = $this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=module', true);
         $data['test_connection_url'] = $this->url->link('extension/tropatt/module/tropatt.testConnection', 'user_token=' . $this->session->data['user_token'], true);
+        $data['save_url'] = $this->url->link('extension/tropatt/module/tropatt.save', 'user_token=' . $this->session->data['user_token'], true);
 
         $data['header'] = $this->load->controller('common/header');
         $data['column_left'] = $this->load->controller('common/column_left');
         $data['footer'] = $this->load->controller('common/footer');
 
         $this->response->setOutput($this->load->view('extension/tropatt/module/tropatt', $data));
+    }
+
+    /**
+     * AJAX settings save used by the admin panel (progressive enhancement:
+     * a plain form POST without JavaScript is still handled by index()).
+     */
+    public function save(): void {
+        $this->load->language('extension/tropatt/module/tropatt');
+
+        $json = ['success' => false, 'message' => '', 'errors' => []];
+
+        if (!$this->user->hasPermission('modify', 'extension/tropatt/module/tropatt')) {
+            $json['message'] = $this->language->get('error_permission');
+        } else {
+            $this->load->model('setting/setting');
+            $this->model_setting_setting->editSetting('module_tropatt', $this->request->post);
+            $json['success'] = true;
+            $json['message'] = $this->language->get('text_success');
+        }
+
+        $this->response->addHeader('Content-Type: application/json');
+        $this->response->setOutput(json_encode($json));
     }
 
     public function testConnection(): void {

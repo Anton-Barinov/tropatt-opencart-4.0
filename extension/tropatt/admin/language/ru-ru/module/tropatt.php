@@ -39,3 +39,12 @@ $_['error_permission']       = 'У вас нет прав для управле�
 $_['error_gateway_url']      = 'URL шлюза обязателен для заполнения!';
 $_['error_store_key']        = 'Ключ витрины обязателен!';
 $_['error_store_secret']     = 'Секретный ключ обязателен!';
+
+// Bootstrap 5 admin panel
+$_['text_yes'] = 'Да';
+$_['text_no'] = 'Нет';
+$_['text_copied'] = 'URL скопирован в буфер обмена';
+$_['text_mapping_help'] = 'Сопоставьте статусы заказов OpenCart со стадиями задач TropaTT CRM. При изменении статуса в CRM модуль автоматически переведет заказ OpenCart в выбранный статус.';
+$_['text_mapping_status_column'] = 'Статус OpenCart';
+$_['text_mapping_stage_column'] = 'Код стадии CRM (например: new, in_progress, completed, cancelled)';
+$_['button_copy'] = 'Скопировать';
